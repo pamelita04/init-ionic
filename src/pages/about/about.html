@@ -7,13 +7,19 @@
 </ion-header>
 
 <ion-content>
-  <ion-list inset>
+  <ion-list>
     
-    <button ion-item *ngFor="let note of notes" (click)="goToDetail(note)">
+    <button ion-item *ngFor="let note of notes" (click)="goToDetail(note.id)">
       <ion-item>
         <ion-icon name="ionic" item-start></ion-icon>
         {{ note.title }}
       </ion-item>
     </button>  
   </ion-list>
+  <ion-fab right bottom>
+      <button ion-fab>
+        <!-- <ion-icon name="">+</ion-icon> -->
+        +
+      </button>
+    </ion-fab>
 </ion-content>
