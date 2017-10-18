@@ -8,18 +8,16 @@
 
 <ion-content>
   <ion-list>
-    
     <button ion-item *ngFor="let note of notes" (click)="goToDetail(note.id)">
-      <ion-item>
+      <ion-item blank>
         <ion-icon name="ionic" item-start></ion-icon>
         {{ note.title }}
       </ion-item>
     </button>  
   </ion-list>
   <ion-fab right bottom>
-      <button ion-fab>
-        <!-- <ion-icon name="">+</ion-icon> -->
-        +
+      <button ion-fab (click)="createNote()">
+        <ion-icon>+</ion-icon>
       </button>
     </ion-fab>
 </ion-content>
