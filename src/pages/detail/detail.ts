@@ -24,7 +24,11 @@ export class DetailPage {
               public toastCtrl: ToastController) {
     this.id = navParams.get('id');
     if(this.id != 0){
-      this.note = notesService.getNote(this.id);
+      // this.note = notesService.getNote(this.id);
+      notesService.getNote(this.id)
+      .subscribe(note => {
+        this.note = note;
+      });
     }
   }
 
