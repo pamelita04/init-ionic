@@ -29,18 +29,26 @@ export class NotesService{
         // this.notes.push(note);
     }
     public editNote(note){
-        for(let i=0; i < this.notes.length; i++){
-            if (this.notes[i].id == note.id) {
-                this.notes[i] = note;
-            }
-        }
+        // for(let i=0; i < this.notes.length; i++){
+        //     if (this.notes[i].id == note.id) {
+        //         this.notes[i] = note;
+        //     }
+        // }
+        
+        let key:string = String(note.id);
+        console.log(key);
+        this.afDB.database.ref('notas/'+ note.id).update(key, note);
+        
     }
     public deleteNote(note){
-        for(let i=0; i < this.notes.length; i++){
-            if (this.notes[i].id == note.id) {
-                this.notes.splice(i, 1);
-            }
-        }
+        // for(let i=0; i < this.notes.length; i++){
+        //     if (this.notes[i].id == note.id) {
+        //         this.notes.splice(i, 1);
+        //     }
+        // }
+
+        this.afDB.database.ref('notas/'+note.id).remove();
+
     }
 
 }
